@@ -29,6 +29,7 @@ def game_tournament(hero, dragon_list):
         if dragon.is_alive():
             break
         print('Дракон', dragon._color, 'повержен!\n')
+        hero.set_experience(hero.get_experience() + exp[type(dragon)])
 
     if hero.is_alive():
         print('Поздравляем! Вы победили!')
@@ -51,3 +52,5 @@ def start_game():
 
     except EOFError:
         print('Поток ввода закончился. Извините, принимать ответы более невозможно.')
+
+exp = dict([(GreenDragon, 10), (RedDragon, 20), (BlackDragon, 30)])
